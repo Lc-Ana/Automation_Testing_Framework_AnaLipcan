@@ -26,7 +26,10 @@ public class AccountPage extends Page {
     private WebElement wishBtn;
     @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     private WebElement homeBtn;
-
+    @FindBy(linkText = "Logout")
+    private WebElement logoutBtn;
+    @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]/a/span[1]")
+    private WebElement myAccountBtn;
     public void loginIntoAccount(String email, String psw) {
         emailInputField.sendKeys(email);
         pswInputField.sendKeys(psw);
@@ -48,5 +51,10 @@ public class AccountPage extends Page {
 
     public void goToHomePage() {
         homeBtn.click();
+    }
+
+    public void navigateToLogoutPage(){
+        myAccountBtn.click();
+        logoutBtn.click();
     }
 }

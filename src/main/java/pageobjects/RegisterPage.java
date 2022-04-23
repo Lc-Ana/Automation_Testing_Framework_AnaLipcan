@@ -24,6 +24,9 @@ public class RegisterPage extends Page {
     private WebElement pswConfInputField;
     @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[2]")
     private WebElement submitBtn;
+    @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[1]")
+    private WebElement privacyPolicyCheck;
+
 
     public void populateRegisterFormWithData(String firstName, String lastName, String email, String phone,
                                              String psw, String pswConfirm) {
@@ -33,6 +36,10 @@ public class RegisterPage extends Page {
         phoneInputField.sendKeys(phone);
         pswInputField.sendKeys(psw);
         pswConfInputField.sendKeys(pswConfirm);
+    }
+
+    public void acceptPrivacyPolicy(){
+        privacyPolicyCheck.click();
     }
 
     public void clickSubmitBtn() {
