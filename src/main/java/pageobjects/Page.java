@@ -10,7 +10,7 @@ public abstract  class Page {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]/a/i")
+    @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]/a/span[1]")
     private WebElement myAccountIcn;
     @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]/ul/li[1]/a")
     private WebElement registerBtn;
