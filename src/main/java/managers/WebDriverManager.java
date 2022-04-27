@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Locale;
+
 
 public class WebDriverManager {
 
@@ -17,16 +19,16 @@ public class WebDriverManager {
     private String browserType;
 
     private void initialiseDriver() {
-        switch (browserType) {
-            case "CHROME", "chrome", "Chrome":
+        switch (browserType.toUpperCase(Locale.ROOT)) {
+            case "CHROME":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
-            case "FIREFOX", "FireFox", "Firefox", "firefox":
+            case "FIREFOX":
                 System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver.exe");
                 driver = new FirefoxDriver();
                 break;
-            case "Microsoft Edge", "Edge":
+            case "MICROSOFTEDGE":
                 System.setProperty("webdriver.edge.driver", "src/main/resources/drivers/msedgedriver.exe");
                 driver = new EdgeDriver();
                 break;

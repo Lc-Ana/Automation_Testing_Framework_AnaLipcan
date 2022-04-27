@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,9 @@ public class AccountPage extends Page {
     private WebElement logoutBtn;
     @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]/a/span[1]")
     private WebElement myAccountBtn;
+    @FindBy(xpath = "//*[@id=\"account-login\"]/div[1]")
+    private WebElement messageErrorBadCredentials;
+
     public void loginIntoAccount(String email, String psw) {
         emailInputField.sendKeys(email);
         pswInputField.sendKeys(psw);
@@ -56,5 +60,12 @@ public class AccountPage extends Page {
     public void navigateToLogoutPage(){
         myAccountBtn.click();
         logoutBtn.click();
+    }
+
+    public void showErrorMessageWithBadCredentials(){
+        String expectedErrorMessage = " Warning: No match for E-Mail Address and/or Password.";
+        String actualErrorMessage = messageErrorBadCredentials.getText();
+        Assertions.assertEquals(expectedErrorMessage.trim(), actualErrorMessage,
+                "The actual result non corresponds to expected result, check it again.");
     }
 }
