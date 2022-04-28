@@ -26,6 +26,8 @@ public class RegisterPage extends Page {
     private WebElement submitBtn;
     @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[1]")
     private WebElement privacyPolicyCheck;
+    @FindBy(xpath = "//div[@class=\"text-danger\"]")
+    private WebElement passwordBlankFieldErrorMessage;
 
 
     public void populateRegisterFormWithData(String firstName, String lastName, String email, String phone,
@@ -38,11 +40,15 @@ public class RegisterPage extends Page {
         pswConfInputField.sendKeys(pswConfirm);
     }
 
-    public void acceptPrivacyPolicy(){
+    public void acceptPrivacyPolicy() {
         privacyPolicyCheck.click();
     }
 
     public void clickSubmitBtn() {
         submitBtn.click();
+    }
+
+    public String getPasswordBlankFieldErrorMessageText(){
+        return passwordBlankFieldErrorMessage.getText();
     }
 }
