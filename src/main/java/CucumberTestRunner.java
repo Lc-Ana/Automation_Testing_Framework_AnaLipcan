@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/main/java/features",
         glue = "stepdefinitions",
         snippets = SnippetType.CAMELCASE,
-        tags = {},
+        tags = {"@ScenarioOutline"},
         plugin = {"pretty", "html:target/cucumberreports"}
 )
 public class CucumberTestRunner {
